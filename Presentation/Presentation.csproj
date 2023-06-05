@@ -1,0 +1,244 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <BaseIntermediateOutputPath />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Properties\launchSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MailKit" Version="4.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="MimeKit" Version="4.0.0" />
+    <PackageReference Include="X.PagedList" Version="8.1.0" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Entity\Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\favicon.ico" />
+    <None Include="wwwroot\Images\About\f89531e9-d9f6-46fe-9940-4ebb2f8079c7.jpg" />
+    <None Include="wwwroot\Images\Post\0ea711c6-32b0-4832-90bc-95a37773e53f.jpg" />
+    <None Include="wwwroot\Images\Post\2150095f-e08b-44bb-a55e-2c324add3b58.jpg" />
+    <None Include="wwwroot\Images\Post\35aa04ae-9f63-4aae-abf1-5f25fe8c0de7.jpeg" />
+    <None Include="wwwroot\Images\Post\3bc2cb86-418b-4908-a80a-4de3b235a068.jpg" />
+    <None Include="wwwroot\Images\Post\945f704a-f339-49d5-853d-eadccb27a414.jpg" />
+    <None Include="wwwroot\Images\Post\94ebc33f-2f7d-496e-819f-d6952050bdad.jpg" />
+    <None Include="wwwroot\Images\Post\ab393777-bf41-4f25-8a8b-5a0f5b02e103.jpeg" />
+    <None Include="wwwroot\Images\Post\b8137d17-5523-46cd-a038-63d0511045e8.jpg" />
+    <None Include="wwwroot\Images\Post\c073bcdf-aa80-4b29-aa4f-c2195f7831c1.jpg" />
+    <None Include="wwwroot\Images\Post\c51e93d4-a692-4649-9fe8-0559e5b92d4b.jpg" />
+    <None Include="wwwroot\Images\Post\cd4fff11-fd9f-48d4-b0b7-f6838a8824e0.jpg" />
+    <None Include="wwwroot\Images\Post\e854c7d1-90d9-428e-894b-4b7e0ab1185c.jpg" />
+    <None Include="wwwroot\Images\Post\f68ac838-346c-437b-99bd-c3d7b3474d06.jpg" />
+    <None Include="wwwroot\Images\Training\0ff967bd-7629-4463-95a3-a3a807a63176.jpg" />
+    <None Include="wwwroot\Images\Training\10bcd131-8992-4442-9b82-a4dabe956fd6.jpg" />
+    <None Include="wwwroot\Images\Training\35d709e8-4069-4d80-842d-ccaf9f5b0d2f.jpg" />
+    <None Include="wwwroot\Images\Training\47081ef8-18c9-4b7f-818d-219d98d4dcd2.jpg" />
+    <None Include="wwwroot\Images\Training\7a7929cf-640b-4d8f-8a11-67a23d894b92.jpg" />
+    <None Include="wwwroot\Images\Training\88ddcedc-5a75-423b-ab62-2c3311806c23.jpg" />
+    <None Include="wwwroot\Images\Training\8fe7c437-5d1a-4b86-84a0-8b4a007da979.jpg" />
+    <None Include="wwwroot\Images\Training\c2a50d43-969b-4ea0-a539-5ab0e541a2be.jpg" />
+    <None Include="wwwroot\Images\Training\cdd9fc6f-4357-4a51-a550-013cd5d5305d.jpg" />
+    <None Include="wwwroot\Images\Training\d6507d16-0aaa-4d5a-bd87-36b28a663231.jpg" />
+    <None Include="wwwroot\Images\Training\df32326a-ef59-4401-b7d9-3ea94cb055f9.jpg" />
+    <None Include="wwwroot\Images\Training\ed7e95ab-c8ce-4339-afd5-8e4ffcd4a111.jpg" />
+    <None Include="wwwroot\Images\Training\f052a91f-09af-444a-bf43-749d68743fe8.jpg" />
+    <None Include="wwwroot\Images\Training\f447683d-f70c-4cad-819d-104ae6a6b116.jpg" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\lib\jquery\LICENSE.txt" />
+    <None Include="wwwroot\Templates\admin-template\404.html" />
+    <None Include="wwwroot\Templates\admin-template\account.html" />
+    <None Include="wwwroot\Templates\admin-template\assets\css\portal.css" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\app-logo.svg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\background\background-1.jpg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\background\background-2.jpg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\background\background-3.jpg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\defaul-post-image.png" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\default-user-image.jpg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\doc-thumb-1.jpg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\doc-thumb-2.jpg" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\profiles\profile-1.png" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\profiles\profile-2.png" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\profiles\profile-3.png" />
+    <None Include="wwwroot\Templates\admin-template\assets\images\user.png" />
+    <None Include="wwwroot\Templates\admin-template\assets\js\app.js" />
+    <None Include="wwwroot\Templates\admin-template\assets\js\charts-demo.js" />
+    <None Include="wwwroot\Templates\admin-template\assets\js\index-charts.js" />
+    <None Include="wwwroot\Templates\admin-template\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\Templates\admin-template\assets\plugins\chart.js\chart.min.js" />
+    <None Include="wwwroot\Templates\admin-template\assets\plugins\fontawesome\js\all.min.js" />
+    <None Include="wwwroot\Templates\admin-template\assets\plugins\popper.min.js" />
+    <None Include="wwwroot\Templates\admin-template\charts.html" />
+    <None Include="wwwroot\Templates\admin-template\docs.html" />
+    <None Include="wwwroot\Templates\admin-template\favicon.png" />
+    <None Include="wwwroot\Templates\admin-template\help.html" />
+    <None Include="wwwroot\Templates\admin-template\index.html" />
+    <None Include="wwwroot\Templates\admin-template\login.html" />
+    <None Include="wwwroot\Templates\admin-template\notifications.html" />
+    <None Include="wwwroot\Templates\admin-template\orders.html" />
+    <None Include="wwwroot\Templates\admin-template\reset-password.html" />
+    <None Include="wwwroot\Templates\admin-template\settings.html" />
+    <None Include="wwwroot\Templates\admin-template\signup.html" />
+    <None Include="wwwroot\Templates\main-template\category.html" />
+    <None Include="wwwroot\Templates\main-template\css\base.css" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\css\fontawesome-all.css" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-brands-400-1.eot" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-brands-400.eot" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-brands-400.ttf" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-brands-400.woff" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-regular-400-1.eot" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-regular-400.eot" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-regular-400.ttf" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-regular-400.woff" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-solid-900-1.eot" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-solid-900.eot" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-solid-900.ttf" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-solid-900.woff" />
+    <None Include="wwwroot\Templates\main-template\css\font-awesome\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\Templates\main-template\css\main.css" />
+    <None Include="wwwroot\Templates\main-template\css\vendor.css" />
+    <None Include="wwwroot\Templates\main-template\favicon.png" />
+    <None Include="wwwroot\Templates\main-template\images\avatars\user-01.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\avatars\user-02.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\avatars\user-03.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\avatars\user-04.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\avatars\user-05.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-arrow-left.svg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-arrow-right.svg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-arrow-up.svg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-mail.svg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-minus.svg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-plus.svg" />
+    <None Include="wwwroot\Templates\main-template\images\icons\icon-search.svg" />
+    <None Include="wwwroot\Templates\main-template\images\logo.svg" />
+    <None Include="wwwroot\Templates\main-template\images\sample-image.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\about\about-1000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\about\about-2000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\about\about-500.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\contact\contact-1000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\contact\contact-2000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\contact\contact-500.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\featured\featured-beetle.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\featured\featured-guitarman.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\featured\featured-watch.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\beetle-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\beetle-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\flowers-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\flowers-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\fuji-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\fuji-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\guitarist-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\guitarist-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\jump-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\jump-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\lamp-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\lamp-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\music-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\music-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\sydney-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\sydney-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\tulips-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\tulips-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\watch-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\watch-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\wheel-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\wheel-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\woodcraft-400.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\post\woodcraft-800.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\single\standard\standard-1000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\single\standard\standard-2000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\single\standard\standard-500.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\small\beetle-150.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\small\cookies-150.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\small\salad-150.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\small\shutterbug-150.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\small\tulips-150.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\thumbs\small\wheel-150.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\wheel-1000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\wheel-2000.jpg" />
+    <None Include="wwwroot\Templates\main-template\images\wheel-500.jpg" />
+    <None Include="wwwroot\Templates\main-template\index.html" />
+    <None Include="wwwroot\Templates\main-template\js\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\Templates\main-template\js\main.js" />
+    <None Include="wwwroot\Templates\main-template\js\modernizr.js" />
+    <None Include="wwwroot\Templates\main-template\js\plugins.js" />
+    <None Include="wwwroot\Templates\main-template\page-about.html" />
+    <None Include="wwwroot\Templates\main-template\page-contact.html" />
+    <None Include="wwwroot\Templates\main-template\single-audio.html" />
+    <None Include="wwwroot\Templates\main-template\single-standard.html" />
+    <None Include="wwwroot\Templates\main-template\single-video.html" />
+    <None Include="wwwroot\Templates\main-template\style-guide.html" />
+  </ItemGroup>
+
+</Project>

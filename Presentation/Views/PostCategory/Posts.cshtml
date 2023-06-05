@@ -1,0 +1,58 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Entity.Concrete.Post>
+
+@{
+    ViewData["Title"] = "Posts";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<section class="s-content" style="margin-top: 75px;">
+    <h2 class="text-center" style="margin-bottom: 30px; margin-top: 0;">@ViewBag.CategoryName Kategorisindeki Bloglar</h2>
+    <div class="row entries-wrap wide">
+        <div class="entries">
+            @foreach (var x in Model)
+            {
+                <article class="col-block">
+                    <div class="item-entry" data-aos="zoom-in">
+                        <div class="item-entry__thumb">
+                            <a href="/Post/Details/@x.Id" class="item-entry__thumb-link">
+                                @if (x.Image == "/Templates/admin-template/assets/images/defaul-post-image.png")
+                                {
+                                    <img src="@x.Image">
+                                }
+                                else
+                                {
+                                    <img src="/Images/Post/@x.Image">
+                                }
+                            </a>
+                        </div>
+                        <div class="item-entry__text">
+                            <div class="item-entry__cat">
+                                <a href="/Category/@x.PostCategoryId">@x.PostCategory.Name</a>
+                            </div>
+                            <h1 class="item-entry__title"><a href="/Post/Details/@x.Id">@x.Title</a></h1>
+                            <div class="item-entry__date">
+                                <i class="bi bi-calendar"></i> <span>@(((DateTime)x.Date).ToShortDateString())</span> - <i class="bi bi-eye"></i> <span>@x.ClickCount</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+
+    <div class="row pagination-wrap">
+        <div class="col-full">
+            <nav class="pgn" data-aos="fade-up">
+                <ul>
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Posts", new { page }), new X.PagedList.Web.Common.PagedListRenderOptions{
+                    LiElementClasses = new string[] { "pgn__num" },
+                    PageClasses = new string[] { "pgn__num" }
+                    })
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</section>

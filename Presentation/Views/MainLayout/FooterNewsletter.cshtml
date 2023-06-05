@@ -1,0 +1,13 @@
+﻿
+<div class="col-six tab-full s-footer__subscribe">
+    <h4>Bültene Abone Olun</h4>
+    <p>Yeni blog yazılarım ve eğitimlerimden anında haberdar olabilmek için e-mail adresiniz ile bültene abone olun. Mail aboneliğinizi iptal etmek için <a href="/Contact">iletişim sayfasından</a> iptal mesajınızı iletebilirsiniz.</p>
+    <div class="subscribe-form">
+        @using (Html.BeginForm("SignUpNewsletter", "MainLayout", FormMethod.Post, new { @id = "mc-form", @class = "group" }))
+        {
+            <input type="email" name="Email" class="email" id="mc-email" placeholder="E-Mail Adresiniz" required>
+            <input type="submit" value="GÖNDER">
+            <label for="mc-email" class="subscribe-message"></label>
+        }
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model Entity.Concrete.User
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post))
+{
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Kullanıcı Adı:</label>
+        <div class="col-sm-11">
+            @Html.ValidationMessageFor(x=>x.UserName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(x=>x.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Parola:</label>
+        <div class="col-sm-11">
+            @Html.ValidationMessageFor(x=>x.Password, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(x=>x.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-11">
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success btn-lg"><i class="bi bi-pencil-square text-white"></i></button>
+            </div>
+        </div>
+    </div>
+}

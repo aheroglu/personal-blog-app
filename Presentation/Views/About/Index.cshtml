@@ -1,0 +1,26 @@
+﻿@model List<Entity.Concrete.About>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<section class="s-content s-content--top-padding s-content--narrow">
+    <div class="row narrow">
+        <div class="col-full s-content__header">
+            <h1 class="display-1 display-1--with-line-sep">Hakkımda</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-full s-content__main">
+            @foreach (var x in Model)
+            {
+                <p>
+                    <img src="/Images/About/@x.Image" alt="">
+                </p>
+                <h2>@x.Title</h2>
+                <p>@x.Content</p>
+            }
+        </div>
+    </div>
+</section>

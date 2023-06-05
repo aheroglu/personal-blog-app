@@ -1,0 +1,48 @@
+﻿@model List<Entity.Concrete.User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 class="text-center mb-5">Profilim</h2>
+<div class="table-responsive">
+    <table class="table table-hover text-center">
+        <thead>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>Parola</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.UserName</td>
+                    <td>@x.Password</td>
+                    <td>
+                        <a href="/Admin/Profile/Edit/@x.Id" class="btn" title="Güncelle"><i class="bi bi-pencil-square text-success fs-4"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <script>
+        swal({
+            title: 'İşlem Başarılı!',
+            text: '@Html.Raw(System.Web.HttpUtility.HtmlDecode(TempData["SuccessMessage"].ToString()))',
+            icon: 'success',
+            timer: 3000,
+            buttons: false,
+        })
+    </script>
+}

@@ -1,0 +1,56 @@
+﻿@model Entity.Concrete.TrainingComment
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<section class="s-content s-content--top-padding s-content--narrow">
+
+    @await Component.InvokeAsync("TrainingDetails")
+
+    <div class="comments-wrap">
+
+        @await Component.InvokeAsync("TrainingComments", new { id = ViewBag.PostId })
+
+        <div class="row comment-respond">
+
+            <div id="respond" class="col-full">
+                <h3 class="h2">Yorum Yapın</h3>
+                @using (Html.BeginForm("Details", "Training", FormMethod.Post))
+                {
+                    <div class="form-field">
+                        @Html.ValidationMessageFor(x => x.FullName, "", new { @style = "color: red;" })
+                        @Html.TextBoxFor(x => x.FullName, new { @class = "full-width", @placeholder = "Ad-Soyad" })
+                    </div>
+                    <div class="message form-field">
+                        @Html.ValidationMessageFor(x=>x.Content, "", new { @style = "color: red;" })
+                        @Html.TextAreaFor(x => x.Content, new { @class = "full-width", @placeholder = "Mesajınız", @rows = "7" })
+                    </div>
+                    <input class="btn btn--primary btn-wide btn--large full-width" value="Yorum Yap" type="submit">
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@await Component.InvokeAsync("PopularTrainingsByCategory")
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <script>
+        swal({
+            title: 'İşlem Başarılı!',
+            text: '@Html.Raw(System.Web.HttpUtility.HtmlDecode(TempData["SuccessMessage"].ToString()))',
+            icon: 'success',
+            timer: 3000,
+            buttons: false,
+        })
+    </script>
+}

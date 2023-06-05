@@ -1,0 +1,12 @@
+﻿@model List<Entity.Concrete.Account>
+
+<div class="col-six">
+    <ul class="footer-social">
+        @foreach (var x in Model)
+        {
+            <li>
+                <a href="@x.Link"><i class="@x.Icon"></i></a>
+            </li>
+        }
+    </ul>
+</div>

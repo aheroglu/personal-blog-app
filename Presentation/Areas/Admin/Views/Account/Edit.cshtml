@@ -1,0 +1,41 @@
+﻿@model Entity.Concrete.Account
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post))
+{
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Hesap:</label>
+        <div class="col-sm-11">
+            @Html.DropDownListFor(x=>x.Icon, new List<SelectListItem>{
+        new SelectListItem { Text = "Instagram", Value = "bi bi-instagram" },
+        new SelectListItem { Text = "LinkedIn", Value = "bi bi-linkedin" },
+        new SelectListItem { Text = "Facebook", Value = "bi bi-facebook" },
+        new SelectListItem { Text = "Snapchat", Value = "bi bi-snapchat" },
+        new SelectListItem { Text = "Spotify", Value = "bi bi-spotify" },
+        new SelectListItem { Text = "Telegram", Value = "bi bi-telegram" },
+        new SelectListItem { Text = "TikTok", Value = "bi bi-tiktok" },
+        new SelectListItem { Text = "Twitter", Value = "bi bi-twitter" },
+        new SelectListItem { Text = "YouTube", Value = "bi bi-youtube" }
+        }, new { @class = "form-select" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Link:</label>
+        <div class="col-sm-11">
+            @Html.ValidationMessageFor(x=>x.Link, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(x=>x.Link, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-11">
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success btn-lg"><i class="bi bi-pencil-square text-white"></i></button>
+            </div>
+        </div>
+    </div>
+}

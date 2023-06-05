@@ -1,0 +1,50 @@
+﻿@model Entity.Concrete.Post
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Add", "Post", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Başlık:</label>
+        <div class="col-sm-11">
+            @Html.ValidationMessageFor(x=>x.Title, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(x=>x.Title, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Kategori:</label>
+        <div class="col-sm-11">
+            @Html.DropDownListFor(x=>x.PostCategoryId,(List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">Resim:</label>
+        <div class="col-sm-11">
+                <input type="file" class="form-control" name="Image">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-1 col-form-label text-lg-end">İçerik:</label>
+        <div class="col-sm-11">
+            @Html.ValidationMessageFor(x=>x.Content, "", new { @class = "text-danger" })
+            @Html.TextAreaFor(x=>x.Content, new { @id = "textarea" })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-11">
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-info btn-lg"><i class="bi bi-plus text-white"></i></button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('textarea');
+</script>

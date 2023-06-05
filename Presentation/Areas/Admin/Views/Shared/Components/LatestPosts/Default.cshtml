@@ -1,0 +1,36 @@
+﻿@model List<Entity.Concrete.Post>
+
+<h4 class="text-center mb-4">Son 5 Blog</h4>
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>Resim</th>
+            <th>Başlık</th>
+            <th>Kategori</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>
+                    @if (x.Image == "/Templates/admin-template/assets/images/defaul-post-image.png")
+                    {
+                        <img src="@x.Image" width="50">
+                    }
+                    else
+                    {
+                        <img src="/Images/Post/@x.Image" width="50">
+                    }
+                </td>
+                <td class="text-truncate" style="max-width: 200px;">@x.Title</td>
+                <td>@x.PostCategory.Name</td>
+                <td>@x.Date.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-grid gap-2">
+    <a href="/Admin/Post" class="btn btn-primary text-white">Tüm Bloglara Git</a>
+</div>

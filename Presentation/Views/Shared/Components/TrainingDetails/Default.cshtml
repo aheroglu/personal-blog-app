@@ -1,0 +1,32 @@
+﻿@model List<Entity.Concrete.Training>
+
+@foreach (var x in Model)
+{
+    <article class="row entry format-standard">
+        <div class="entry__media col-full">
+            <div class="entry__post-thumb">
+                @if (x.Image == "/Templates/admin-template/assets/images/defaul-post-image.png")
+                {
+                    <img src="@x.Image" alt="cover image">
+                }
+                else
+                {
+                    <img src="/Images/Training/@x.Image" alt="cover image">
+                }
+            </div>
+        </div>
+        <div class="entry__header col-full">
+            <h1 class="entry__header-title display-1">
+                @x.Title
+            </h1>
+            <ul class="entry__header-meta">
+                <li class="date">@x.Date.ToShortDateString()</li>
+            </ul>
+        </div>
+        <div class="col-full entry__main">
+            <p>
+                @Html.Raw(x.Content)
+            </p>
+        </div>
+    </article>
+}

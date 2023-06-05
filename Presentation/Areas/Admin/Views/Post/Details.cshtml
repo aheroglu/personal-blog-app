@@ -1,0 +1,47 @@
+﻿@model List<Entity.Concrete.Post>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@foreach (var x in Model)
+{
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="mb-3 row">
+                @if (x.Image == "/Templates/admin-template/assets/images/defaul-post-image.png")
+                {
+                    <img src="@x.Image">
+                }
+                else
+                {
+                    <img src="/Images/Post/@x.Image">
+                }
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Başlık</span>: @x.Title</label>
+            </div>
+            <hr />
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Kategori</span>: @x.PostCategory.Name</label>
+            </div>
+            <hr />
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Tarih</span>: @x.Date.ToShortDateString()</label>
+            </div>
+            <hr />
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Tıklanma Sayısı</span>: @x.ClickCount  </label>
+            </div>
+            <hr />
+        </div>
+    </div>
+
+    <div class="my-4 row">
+        <p class="text-center fs-3 mb-4 fw-bold">İçerik</p>
+        <label>@Html.Raw(@x.Content)</label>
+    </div>
+}

@@ -1,0 +1,108 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Entity.Concrete.PostComment>
+
+@{
+    ViewData["Title"] = "Comments";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2 class="text-center">"@ViewBag.PostTitle" Bloguna Yapılan Yorumlar</h2>
+<div class="table-responsive">
+    @using (Html.BeginForm("DeleteSelected", "PostComment", FormMethod.Post))
+    {
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th class="d-block">
+                        <input type="submit" id="submit" class="btn btn-danger invisible text-white" value="Seçilenleri Sil" onclick="return confirm('Seçilenleri silmek istediğinize emin misiniz? Bu işlem geri alınamayacak.')" />
+                        <input type="checkbox" id="selectAll" class="d-block mx-auto mt-2" onclick="selectAllCheckboxes()">
+                    </th>
+                    <th>Ad-Soyad</th>
+                    <th>Yorum</th>
+                    <th>Tarih</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="selectedComments" value="@x.Id" onclick="check()" onchange="check()">
+                        </td>
+                        <td>@x.FullName</td>
+                        <td class="text-truncate" style="max-width: 400px;">@x.Content</td>
+                        <td>@x.Date.ToShortDateString()</td>
+                        <td>
+                            <a href="/Admin/PostComment/Details/@x.Id" class="btn" title="Detay"><i class="bi bi-file-earmark-richtext text-warning fs-4"></i></a>
+                            <a href="/Admin/PostComment/Delete/@x.Id" class="btn" title="Sil"><i class="bi bi-trash text-danger fs-4" onclick="return confirm('Silmek istediğinize emin misiniz?')"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <div class="float-end my-3">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Comments", new { page }), new X.PagedList.Web.Common.PagedListRenderOptions{
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" }
+        })
+    </div>
+
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+{
+    <script>
+        swal({
+            title: 'İşlem Başarılı!',
+            text: '@Html.Raw(System.Web.HttpUtility.HtmlDecode(TempData["SuccessMessage"].ToString()))',
+            icon: 'success',
+            timer: 3000,
+            buttons: false,
+        })
+    </script>
+}
+
+<script>
+    function selectAllCheckboxes() {
+        var checkboxes = document.getElementsByName('selectedComments');
+        var selectAllCheckbox = document.getElementById('selectAll');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = selectAllCheckbox.checked;
+        }
+
+        updateSubmitButtonVisibility();
+    }
+
+    function check() {
+        updateSubmitButtonVisibility();
+    }
+
+    function updateSubmitButtonVisibility() {
+        var checkboxes = document.getElementsByName('selectedComments');
+        var submitButton = document.getElementById('submit');
+
+        var isChecked = false;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        if (isChecked) {
+            submitButton.classList.remove("invisible");
+        } else {
+            submitButton.classList.add("invisible");
+        }
+    }
+</script>

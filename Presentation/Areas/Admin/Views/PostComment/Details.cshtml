@@ -1,0 +1,26 @@
+﻿@model List<Entity.Concrete.PostComment>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@foreach (var x in Model)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Blog</span>: @x.Post.Title</label>
+            </div>
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Ad-Soyad</span>: @x.FullName</label>
+            </div>
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Tarih</span>: @x.Date.ToShortDateString()</label>
+            </div>
+            <div class="mb-3 row">
+                <label><span class="fw-bold">Yorum</span>: @x.Content</label>
+            </div>
+        </div>
+    </div>
+}

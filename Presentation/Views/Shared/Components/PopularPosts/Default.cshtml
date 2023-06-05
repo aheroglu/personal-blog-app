@@ -1,0 +1,28 @@
+﻿@model List<Entity.Concrete.Post>
+
+<div class="col-six tab-full popular">
+    <h3>Popüler Yazılarım</h3>
+    <div class="popular__posts">
+        @foreach (var x in Model)
+        {
+            <article class="col-twelve popular__post">
+                <a href="/Post/Details/@x.Id" class="popular__thumb">
+                    @if (x.Image == "/Templates/admin-template/assets/images/defaul-post-image.png")
+                    {
+                        <img src="@x.Image">
+                    }
+                    else
+                    {
+                        <img src="/Images/Post/@x.Image">
+                    }
+                </a>
+                <h5><a href="/Post/Details/@x.Id">@x.Title</a></h5>
+                <section class="popular__meta">
+                    <span class="popular__author"><span></span> <a href="/PostCategory/Posts/@x.PostCategoryId">@x.PostCategory.Name</a></span>
+                    <span class="popular__date"><span> </span>@x.Date.ToShortDateString()</span>
+                    - <i class="bi bi-eye"></i> <span class="popular__date"><span> </span>@x.ClickCount</span>
+                </section>
+            </article>
+        }
+    </div>
+</div>

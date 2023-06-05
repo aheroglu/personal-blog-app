@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Entity.Concrete.Post>
+
+<section class="s-featured">
+    <div class="row">
+        <div class="col-full">
+            <div class="featured-slider featured" data-aos="zoom-in">
+                @foreach (var x in Model)
+                {
+                    string img = "";
+                    @if (x.Image == "/Templates/admin-template/assets/images/defaul-post-image.png")
+                    {
+                        img = "/Templates/admin-template/assets/images/defaul-post-image.png";
+                    }
+                    else
+                    {
+                        img = "/Images/Post/" + @x.Image;
+                    }
+
+                    <div class="featured__slide">
+                        <div class="entry">
+                            <div class="entry__background" style="background-image:url('@img');"></div>
+                            <div class="entry__content">
+                                <span class="entry__category"><a href="/PostCategory/Posts/@x.PostCategoryId">@x.PostCategory.Name</a></span>
+                                <h1><a href="/Post/Details/@x.Id" title="">@x.Title</a></h1>
+                                <div class="entry__info">
+                                    <i class="bi bi-calendar" style="color: #fff; margin-right: 10px;"></i> <span style="color: #fff; margin-right: 10px;">@(((DateTime)x.Date).ToShortDateString())</span> <span style="color: #fff; margin-right: 10px;">-</span> <i class="bi bi-eye" style="color: #fff; margin-right: 10px;"></i> <span style="color: #fff;">@x.ClickCount</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

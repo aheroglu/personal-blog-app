@@ -1,0 +1,33 @@
+﻿<header class="s-header header">
+    <div class="header__logo">
+        <a class="logo" href="/Home">
+            <span style="font-size: 2em; font-family: Garamond, serif; color: #000">Akın Ünal</span>
+        </a>    
+    </div>
+    <a class="header__search-trigger" href="#0"></a>
+    <div class="header__search">
+        <form class="header__search-form" action="/MainLayout/Search">
+            <label>
+                <span class="hide-content">Arama yap:</span>
+                <input type="search" name="searchTerm" class="search-field" placeholder="Bir Şey Yazın">
+            </label>
+            <input type="submit" class="search-submit" value="Search">
+        </form>
+        <a href="#0" title="Aramayı Kapat" class="header__overlay-close">KAPAT</a>
+    </div>
+    <a class="header__toggle-menu" href="#0" title="Menu"><span>MENÜ</span></a>
+    <nav class="header__nav-wrap">
+        <h2 class="header__nav-heading h6">MENÜ</h2>
+        <ul class="header__nav">
+            <li><a href="/Home" title="">Ana Sayfa</a></li>
+            
+            @await Component.InvokeAsync("HeaderCategories")
+
+            @await Component.InvokeAsync("HeaderTrainings")
+            
+            <li><a href="/About" title="">HAKKIMDA</a></li>
+            <li><a href="/Contact" title="">İLETİŞİM</a></li>
+        </ul>
+        <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Kapat</a>
+    </nav>
+</header>

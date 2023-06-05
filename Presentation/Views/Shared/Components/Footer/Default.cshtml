@@ -1,0 +1,30 @@
+﻿    <footer id="footer" class="s-footer">
+    <div class="s-footer__main">
+        <div class="row">
+
+            @await Component.InvokeAsync("FooterAbout")
+
+            @await Html.PartialAsync("/Views/MainLayout/FooterNewsletter.cshtml")
+
+        </div>
+    </div>
+    <div class="s-footer__bottom">
+        <div class="row">
+           
+            @await Component.InvokeAsync("FooterAccounts")
+
+            <div class="col-six">
+                <div class="s-footer__copyright">
+                    <span>
+                        &copy; @DateTime.Now.Year Akın Ünal | <a href="https://ahmetyazbulursun.com" target="_blank">Ahmet Hakan Eroğlu</a> tarafından geliştirilmiştir.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+    </div>
+
+</footer>

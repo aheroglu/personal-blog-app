@@ -1,0 +1,9 @@
+﻿@model List<Entity.Concrete.About>
+
+<div class="col-six tab-full s-footer__about">
+    <h4>Hakkımda</h4>
+    @foreach (var x in Model)
+    {
+        <p>@x.Content</p>
+    }
+</div>

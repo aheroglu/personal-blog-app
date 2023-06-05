@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Entity.Concrete.PostCategory>
+
+<li class="has-children">
+    <a href="#0" title="">KATEGORİLER</a>
+    <ul class="sub-menu">
+        @foreach (var x in Model)
+        {
+            <li><a href="/PostCategory/Posts/@x.Id">@x.Name</a></li>
+        }
+    </ul>
+</li>
